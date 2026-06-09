@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cães do Campus - Patas do Bem</title>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item active">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="cadastro-caes.html" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i>
+                    Cadastrar Animal
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html" class="active">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-caes" class="page active">
+        <div class="page-hero">
+            <div class="container">
+                <span class="section-label">Nossos animais</span>
+                <h1 class="section-title">Cães do Campus</h1>
+                <p class="section-subtitle">Conheça os cães cadastrados no sistema Patas do Bem do IFTM Ituiutaba.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="dogs-filter">
+                    <button class="filter-btn active" onclick="filterDogs(this,'todos')">Todos</button>
+                    <button class="filter-btn" onclick="filterDogs(this,'macho')">macho</button>
+                    <button class="filter-btn" onclick="filterDogs(this,'femea')">femea</button>
+                    <button class="filter-btn" onclick="filterDogs(this,'castrado')">castrado</button>
+                </div>
+
+                <div class="dogs-grid" id="dogsGrid">
+                    <p>Carregando cães...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba.</p>
+                </div>
+                </div>
+        </div>
+    </footer>
+
+    <script src="database.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html>

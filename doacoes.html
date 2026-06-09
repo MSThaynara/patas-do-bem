@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações - Patas do Bem</title>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="doacoes.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item active">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="perfil.html" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i>
+                    Criar Perfil
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html" class="active">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-doacoes" class="page active">
+        <div class="page-hero">
+            <div class="container">
+                <span class="section-label">Apoie nosso projeto</span>
+                <h1 class="section-title">Como Ajudar</h1>
+                <p class="section-subtitle">O Patas do Bem vive da colaboração voluntária. Descubra como você pode contribuir para manter os cães saudáveis e alimentados.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="donations-intro">
+                    <div class="donations-intro-content">
+                        <h2 class="section-title" style="font-size: 2rem; color: var(--azul);">Pontos de Entrega Presencial</h2>
+                        <p class="donation-location-text">
+                            Raçoes, medicamentos e utensílios de limpeza podem ser entregues diretamente na <strong>Sala 12 do Bloco B (Coordenação de Extensão)</strong> ou nos pontos de coleta distribuídos nos blocos de salas de aula do IFTM Campus Ituiutaba.
+                        </p>
+                        <a href="contato.html" class="btn btn-primary donation-contact-btn">
+                            <i class="ph ph-map-pin"></i> Ver Horários de Funcionamento
+                        </a>
+                    </div>
+                    <div class="donations-intro-media">
+                        <img src="Imagens/teste.jpeg" alt="Cachorros felizes recebendo cuidados" class="donation-photo" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="donation-tabs-container">
+                    <div class="donation-tabs-nav">
+                        <button class="tab-btn active" onclick="switchDonationTab(this, 'material')">
+                            <i class="ph ph-package"></i> Itens Necessários
+                        </button>
+                        <button class="tab-btn" onclick="switchDonationTab(this, 'financeiro')">
+                            <i class="ph ph-qr-code"></i> Contribuição via Pix
+                        </button>
+                    </div>
+
+                    <div id="tab-material" class="donation-tab-content active">
+                        <div class="donation-items-grid">
+                            <div class="donation-item">
+                                <div class="donation-icon-wrapper"><i class="ph ph-dog"></i></div>
+                                <h3 class="donation-name">Ração Especial</h3>
+                                <p class="donation-desc">Ração premium para cães adultos e filhotes. Ajuda a manter a pelagem saudável e a imunidade alta.</p>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-icon-wrapper"><i class="ph ph-pill"></i></div>
+                                <h3 class="donation-name">Medicamentos</h3>
+                                <p class="donation-desc">Vermífugos, anti-pulgas (Simparic/Bravecto) e pomadas cicatrizantes para tratamentos correntes.</p>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-icon-wrapper"><i class="ph ph-drop"></i></div>
+                                <h3 class="donation-name">Higiene</h3>
+                                <p class="donation-desc">Shampoos neutros, sabonetes sarnicidas, desinfetantes (tipo Herbalvet) e sacos de lixo reforçados.</p>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-icon-wrapper"><i class="ph ph-identification-card"></i></div>
+                                <h3 class="donation-name">Acessórios</h3>
+                                <p class="donation-desc">Coleiras, guias, potes de água/comida de inox ou alumínio e caminhas de plástico fáceis de higienizar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab-financeiro" class="donation-tab-content">
+                        <div class="pix-card-container">
+                            <div class="pix-qr-wrapper">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=patasdobem@iftm.edu.br" alt="QR Code Pix Patas do Bem">
+                            </div>
+                            <div class="pix-details">
+                                <h3 class="pix-title">Doação Direta via Pix</h3>
+                                <p class="pix-instructions">Escaneie o QR Code ao lado pelo aplicativo do seu banco ou copie a chave Pix CNPJ/E-mail abaixo. Qualquer valor ajuda a custear cirurgias urgentes e exames de sangue.</p>
+                                <div class="pix-input-group">
+                                    <input type="text" value="patasdobem@iftm.edu.br" id="pixKey" readonly>
+                                    <button onclick="copyPixKey(this)" class="btn btn-verde">
+                                        <i class="ph ph-copy"></i> Copiar Chave
+                                    </button>
+                                </div>
+                                <span class="pix-destination-info"><i class="ph ph-bank"></i> Conta Institucional - IFTM Projetos de Extensão</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

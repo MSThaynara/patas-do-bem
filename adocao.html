@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoção Responsável - Patas do Bem</title>
+  <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="index.html">
+        <img src="Imagens/logo (3).PNG" alt="">
+      </a>
+
+      <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item">Início</a></li>
+            <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+            <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+            <li><a href="adocao.html" class="nav-link-item active">Adoção</a></li>
+            <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+            <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+            <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+        </ul>
+
+      <div class="nav-cta">
+        <a href="perfil.html" class="btn btn-primary">
+          <i class="ph ph-plus-circle"></i>
+          Criar Perfil
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Início</a>
+    <a href="instacao.html" >InstaCão</a>
+    <a href="caes.html">Cães</a>
+    <a href="adocao.html" class="active">Adoção</a>
+    <a href="doacoes.html">Doações</a>
+    <a href="ocorrencias.html">Ocorrências</a>
+    <a href="contato.html">Contato</a>
+  </div>
+
+  <div id="page-adocao" class="page active">
+    <div class="page-hero">
+      <div class="container">
+        <span class="section-label">Adoção Responsável</span>
+        <h1 class="section-title">Adote um amigo</h1>
+        <p class="section-subtitle">Todos os animais disponíveis são vacinados, vermifugados e castrados. O processo é feito com cuidado e acompanhamento.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div style="background:var(--azul-light); border:1px solid rgba(52,80,153,.15); border-radius:var(--radius-lg); padding:28px 32px; margin-bottom:48px; display:flex; gap:20px; align-items:flex-start;">
+          <div style="color:var(--azul); flex-shrink:0; margin-top:2px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <strong style="font-size:.9rem; color:var(--azul);">Requisitos para adoção:</strong>
+            <p style="font-size:.875rem; color:var(--cinza); margin-top:6px; line-height:1.65;">Ser maior de 18 anos · Apresentar documento de identidade · Ter residência fixa · Assinar termo de adoção responsável · Passar por entrevista com a equipe do projeto.</p>
+          </div>
+        </div>
+
+        <div class="adoption-grid">
+          <div class="adopt-card">
+            <div class="adopt-img">
+              <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&auto=format&fit=crop" alt="Max" loading="lazy"/>
+              <span class="adopt-ribbon">Disponível</span>
+            </div>
+            <div class="adopt-body">
+              <h3 class="adopt-name">Max</h3>
+              <div class="adopt-info">
+                <span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~1 ano · Macho · SRD</span>
+                <span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Vacinado, vermifugado e castrado</span>
+              </div>
+              <button class="btn btn-orange" style="width:100%; justify-content:center;" onclick="interestAlert('Max')">Tenho Interesse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma
+                        colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li> 
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="database.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html>

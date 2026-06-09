@@ -1,0 +1,332 @@
+/* ---- banner hero (principal) ---- */
+#page-ocorrencias .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: 60px;
+    background: linear-gradient(135deg, var(--azul) 0%, var(--verde) 100%);
+}
+#page-ocorrencias .section-label {
+    display: inline-block;
+    background: #f47c2ca9;
+    color: var(--creme);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#page-ocorrencias .section-title {
+    color: var(--branco);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+#page-ocorrencias .section-subtitle {
+    color: #cbd5e1;
+    max-width: 650px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ---- painel de cards estatísticos ---- */
+.occ-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 800px;
+    margin: -40px auto 56px auto;
+    position: relative;
+    z-index: 10;
+}
+.occ-stat-card {
+    background: var(--branco);
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(15, 32, 66, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.occ-stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+.border-laranja::after { background: var(--laranja); }
+.border-azul::after { background: var(--azul); }
+.border-verde::after { background: var(--verde); }
+.occ-stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(15, 32, 66, 0.12);
+}
+.occ-stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+.occ-stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0f2042;
+    line-height: 1;
+}
+.occ-stat-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ---- estrutura do layout corporativo ---- */
+.occ-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 56px;
+    align-items: start;
+}
+
+/* ---- card do formulário ---- */
+.form-card {
+    background: var(--branco);
+    padding: 44px;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(15, 32, 66, 0.05);
+}
+.occ-section-title {
+    font-size: 1.5rem;
+    color: #0f2042;
+    font-weight: 800;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.occ-section-title i {
+    color: var(--verde);
+    font-size: 1.8rem;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-group { margin-bottom: 24px; }
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 10px;
+}
+.form-group label .optional {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+/* ---- customização de campos de texto ---- */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+.form-card input, .form-card select {
+    width: 100%;
+    padding: 14px 16px 14px 46px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+.form-card textarea {
+    width: 100%;
+    padding: 16px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #1e293b;
+    outline: none;
+    resize: none;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus {
+    border-color: var(--verde);
+    background: var(--branco);
+    box-shadow: 0 0 0 4px rgba(46, 184, 114, 0.15);
+}
+.form-card .input-wrapper:focus-within .input-icon { color: var(--verde); }
+#occForm .btn-primary {
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* ---- componentes da timeline (linha do tempo) ---- */
+.timeline-container {
+    position: relative;
+    padding-left: 32px;
+    border-left: 2px dashed #cbd5e1;
+    margin-left: 15px;
+}
+.timeline-row { position: relative; margin-bottom: 24px; }
+.timeline-badge {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    left: -39px;
+    top: 32px;
+    border: 2px solid var(--branco);
+    z-index: 10;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+.timeline-badge.status-open { background-color: var(--laranja); }
+.timeline-badge.status-review { background-color: var(--azul); }
+.timeline-badge.status-success { background-color: var(--verde); }
+
+/* ---- cards individuais da timeline ---- */
+.occ-item {
+    background: var(--branco);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.occ-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(15, 32, 66, 0.06);
+    border-color: #cbd5e1;
+}
+.timeline-row:hover .timeline-badge { transform: scale(1.2); }
+.status-border-open { border-left: 4px solid var(--laranja); }
+.status-border-open::before { background: var(--laranja); }
+.status-border-review { border-left: 4px solid var(--azul); }
+.status-border-review::before { background: var(--azul); }
+
+/* ---- metadados internos dos cards ---- */
+.occ-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.occ-item-id {
+    font-family: monospace;
+    font-weight: 700;
+    color: #94a3b8;
+    background: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+.status-badge.status-open {
+    background: rgba(var(--laranja-rgb, 244, 124, 44), 0.15);
+    color: var(--laranja);
+}
+.status-badge.status-review {
+    background: rgba(var(--azul-rgb, 52, 80, 153), 0.15);
+    color: var(--azul);
+}
+.status-badge.status-success {
+    background: rgba(var(--verde-rgb, 46, 184, 114), 0.15);
+    color: var(--verde);
+}
+.occ-item-title {
+    font-size: 1.2rem;
+    color: #0f2042;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.occ-item-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+.occ-item-meta span { display: flex; align-items: center; gap: 4px; }
+.occ-item-meta i { color: var(--verde); font-size: 0.95rem; }
+.occ-item-text {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* ---- regras de responsividade (media queries) ---- */
+@media (max-width: 1024px) {
+    .occ-layout { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 768px) {
+    .occ-stats { grid-template-columns: 1fr; gap: 16px; margin-top: -20px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card { padding: 28px; }
+    #page-ocorrencias .section-title { font-size: 2.25rem; }
+}
+@media (max-width: 620px) {
+    .occ-item-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 14px;
+    }
+    .occ-item-meta span { display: flex; align-items: center; gap: 8px; }
+    .occ-item-text { word-break: break-word; }
+}
+
+/* ---- animações globais ---- */
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+#btnSubmitOcc:disabled {
+    background: #94a3b8 !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+}

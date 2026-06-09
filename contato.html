@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Patas do Bem</title>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="contato.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item active">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="ocorrencias.html" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i> Registrar Ocorrência
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html" class="active">Contato</a>
+    </div>
+
+    <div id="page-contato" class="page active">
+        <div class="page-hero">
+            <div class="container">
+                <span class="section-label">Fale Conosco</span>
+                <h1 class="section-title">Contato</h1>
+                <p class="section-subtitle">Dúvidas, sugestões, parcerias ou interesse em adoção? Envie uma mensagem.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info-card">
+                        <h3>Canais de Comunicação</h3>
+                        <div class="contact-channels-list">
+                            <div class="contact-channel-item">
+                                <i class="ph ph-envelope-simple"></i>
+                                <div>
+                                    <strong>E-mail</strong>
+                                    <p>patasdobem@iftm.edu.br</p>
+                                </div>
+                            </div>
+                            <div class="contact-channel-item">
+                                <i class="ph ph-map-pin"></i>
+                                <div>
+                                    <strong>Localização</strong>
+                                    <p>Bloco B · Sala 12 (Coordenação)</p>
+                                </div>
+                            </div>
+                            <div class="contact-channel-item">
+                                <i class="ph ph-clock"></i>
+                                <div>
+                                    <strong>Horário de Funcionamento</strong>
+                                    <p>Segunda a Sexta · 08h às 17h</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campus-map-wrapper">
+                            <div id="map"></div>
+                            <div class="map-legend">
+                                <i class="ph ph-map-trifold"></i>
+                                <span>Mapa interativo do campus (clique nos pinos)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h3><i class="ph ph-note-pencil"></i> Envie uma Mensagem</h3>
+                        <form id="form-contato" action="processar_contato.php" method="POST">
+                            <div class="form-group">
+                                <label for="contato-nome">Seu Nome <span class="optional">(Opcional)</span></label>
+                                <div class="input-with-icon">
+                                    <i class="ph ph-user"></i>
+                                    <input type="text" id="contato-nome" name="nome" placeholder="Ex: João Silva" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contato-email">E-mail *</label>
+                                    <div class="input-with-icon">
+                                        <i class="ph ph-envelope"></i>
+                                        <input type="email" id="contato-email" name="email" required placeholder="seuemail@exemplo.com" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contato-assunto">Qual o Motivo do Contato? *</label>
+                                    <div class="input-with-icon">
+                                        <i class="ph ph-question"></i>
+                                        <select id="contato-assunto" name="assunto" required>
+                                            <option value="" disabled selected hidden>Selecione a categoria...</option>
+                                            <option value="duvida">Dúvidas gerais</option>
+                                            <option value="adocao">Interesse em Adoção</option>
+                                            <option value="parceria">Parcerias / Voluntariado</option>
+                                            <option value="sugestao">Sugestões ou Reclamações</option>
+                                            <option value="outro">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contato-mensagem">Mensagem *</label>
+                                <div class="input-with-icon align-textarea">
+                                    <i class="ph ph-chat-text"></i>
+                                    <textarea id="contato-mensagem" name="mensagem" rows="4" required placeholder="Descreva sua dúvida, sugestão ou interesse..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit-contato">
+                                Enviar mensagem <i class="ph ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <section class="dev-credits-section">
+                    <div class="dev-credits-header">
+                        <div class="dev-icon-title">
+                            <i class="ph ph-code"></i>
+                            <h3>Quem Desenvolveu o Site?</h3>
+                        </div>
+                        <p>Este sistema foi planejado e codificado como parte de um Projeto Integrador Extensionista do <strong>IFTM Campus Ituiutaba</strong>, apoiando as ações do Patas do Bem através da tecnologia.</p>
+                    </div>
+                    <div class="dev-credits-grid">
+                        <div class="dev-card-member">
+                            <div class="dev-member-avatar">
+                                <i class="ph ph-user-gear"></i>
+                            </div>
+                            <div class="dev-member-meta">
+                                <h4>Gabriela Castro</h4>
+                                <span class="dev-badge">Requisitos & Fauna</span>
+                                <p>Análise e Desenvolvimento de Sistemas</p>
+                            </div>
+                            <div class="dev-member-social">
+                                <a href="mailto:gabriela.gouveia@estudante.iftm.edu.br" title="E-mail"><i class="ph ph-envelope"></i></a>
+                                <a href="https://instagram.com/gabicastroz" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="dev-card-member">
+                            <div class="dev-member-avatar">
+                                <i class="ph ph-user-gear"></i>
+                            </div>
+                            <div class="dev-member-meta">
+                                <h4>Gabriela Papetti</h4>
+                                <span class="dev-badge">Cadastro & Usuários</span>
+                                <p>Análise e Desenvolvimento de Sistemas</p>
+                            </div>
+                            <div class="dev-member-social">
+                                <a href="mailto:gabriela.papetti@estudante.iftm.edu.br" title="E-mail"><i class="ph ph-envelope"></i></a>
+                                <a href="https://instagram.com/gabi.qrz19" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="dev-card-member">
+                            <div class="dev-member-avatar">
+                                <i class="ph ph-user-gear"></i>
+                            </div>
+                            <div class="dev-member-meta">
+                                <h4>Thaynara Moreira</h4>
+                                <span class="dev-badge">Adoção & Banco de Dados</span>
+                                <p>Análise e Desenvolvimento de Sistemas</p>
+                            </div>
+                            <div class="dev-member-social">
+                                <a href="mailto:thaynara.silva@estudante.iftm.edu.br" title="E-mail"><i class="ph ph-envelope"></i></a>
+                                <a href="https://instagram.com/ms__thaynara" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="dev-card-member">
+                            <div class="dev-member-avatar">
+                                <i class="ph ph-user-gear"></i>
+                            </div>
+                            <div class="dev-member-meta">
+                                <h4>Thayssa Medeiros</h4>
+                                <span class="dev-badge">Front-End & Interface</span>
+                                <p>Análise e Desenvolvimento de Sistemas</p>
+                            </div>
+                            <div class="dev-member-social">
+                                <a href="mailto:thayssa.dantas@estudante.iftm.edu.br" title="E-mail"><i class="ph ph-envelope"></i></a>
+                                <a href="https://instagram.com/yssazzn" target="_blank" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Animal - Patas do Bem</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="cadastro-caes.html" class="btn btn-primary active">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    Cadastrar Animal
+                </a>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-cadastro-caes" class="page active">
+        <div class="page-hero">
+            <div class="container">
+                <span class="section-label">Gestão de Animais</span>
+                <h1 class="section-title">Cadastrar Novo Cão</h1>
+                <p class="section-subtitle">Preencha os dados abaixo para incluir um novo animal no sistema Patas do Bem.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="form-card" style="max-width: 600px; margin: 0 auto;">
+                    <form id="form-cadastro-cao">
+                        <div class="form-group">
+                            <label>Nome ou Apelido *</label>
+                            <input type="text" id="nome-cao" required placeholder="Digite o nome do cão">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Raça *</label>
+                            <input type="text" id="raca-cao" required placeholder="Ex: Labrador, SRD...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Idade *</label>
+                            <input type="text" id="idade-cao" required placeholder="Ex: 2 anos, Filhote...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sexo *</label>
+                            <select id="sexo-cao" required>
+                                <option value="">Selecione o sexo</option>
+                                <option value="macho">Macho</option>
+                                <option value="femea">Fêmea</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Porte *</label>
+                            <select id="porte-cao" required>
+                                <option value="">Selecione o porte</option>
+                                <option value="filhote">Filhote</option>
+                                <option value="pequeno">Pequeno</option>
+                                <option value="medio">Médio</option>
+                                <option value="grande">Grande</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: flex; gap: 20px; align-items: center; margin-bottom: 15px;">
+                            <label style="margin-bottom: 0;">
+                                <input type="checkbox" id="castrado-cao"> Castrado
+                            </label>
+                            <label style="margin-bottom: 0;">
+                                <input type="checkbox" id="vacinado-cao"> Vacinado
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Status do Animal *</label>
+                            <select id="status-cao" required>
+                                <option value="">Selecione o status</option>
+                                <option value="campus">No Campus</option>
+                                <option value="adocao">Para Adoção</option>
+                                <option value="adotado">Adotado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Descrição Detalhada *</label>
+                            <textarea id="desc-cao" rows="4" required placeholder="Conte um pouco sobre as características e temperamento..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Foto do Animal *</label>
+                            <input type="file" id="foto-cao" accept="image/*" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                            Concluir Cadastro
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><img src="Imagens/logo (2).PNG" alt=""></div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="database.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html>

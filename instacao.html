@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaCão - Patas do Bem</title>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="instacao.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item active">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="perfil.html" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i>
+                    Criar Perfil
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html" class="active">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-instacao" class="page active">
+
+        <div class="page-hero">
+            <div class="container hero-inner">
+                <div class="hero-text-side">
+                    <span class="section-label">Comunidade Acadêmica</span>
+                    <h1 class="section-title">InstaCão</h1>
+                    <p class="section-subtitle">O espaço oficial para os alunos do IFTM compartilharem momentos, flagras e o dia a dia dos nossos cãezinhos do campus.</p>
+                </div>
+                <div class="hero-icon-side">
+                    <i class="ph ph-camera"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="container instacao-layout">
+
+            <section class="new-post-section">
+                <div class="post-card create-post-card">
+                    <div class="create-post-header">
+                        <i class="ph ph-note-pencil"></i>
+                        <h3>Compartilhar um momento</h3>
+                    </div>
+                    <form id="form-novo-post" onsubmit="criarNovoPost(event)">
+                        <div class="institution-badge">
+                            <i class="ph ph-shield-check"></i>
+                            <span>Postando como aluno (@estudante.iftm.edu.br)</span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="post-comment" placeholder="Escreva uma legenda ou breve comentário sobre o cãozinho..." required></textarea>
+                        </div>
+                        <div id="upload-preview-container" class="preview-hidden">
+                            <img id="img-preview" src="" alt="Preview da foto">
+                            <span id="file-name-text"></span>
+                        </div>
+                        <div class="form-actions-grid">
+                            <label class="upload-btn" id="label-upload">
+                                <i class="ph ph-image"></i> <span id="upload-btn-text">Adicionar Foto</span>
+                                <input type="file" id="post-image" accept="image/*" required onchange="mostrarPreviewImagem(this)">
+                            </label>
+                            <button type="submit" id="btn-publicar-post" class="btn btn-primary btn-postar">
+                                <i class="ph ph-paper-plane-right"></i> Publicar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <main class="instacao-feed" id="feed-container">
+
+                <article class="feed-item" data-post-id="1">
+                    <div class="feed-media-wrapper clickable-media" onclick="abrirPost(this)">
+                        <img src="Imagens/capa.jpg" alt="Foto do feed">
+                        <div class="media-overlay"><i class="ph ph-magnifying-glass-plus"></i> Ampliar</div>
+                    </div>
+                    <div class="feed-content">
+                        <div class="feed-user-info">
+                            <span class="user-avatar" role="img" aria-label="Estudante">🧑‍🎓</span>
+                            <div>
+                                <h4 class="user-name">Rodrigo Silva</h4>
+                                <span class="user-email">rodrigo.silva@estudante.iftm.edu.br</span>
+                            </div>
+                        </div>
+                        <p class="feed-text">Encontrei o Pipoca tirando uma soneca estratégica logo atrás do bloco B hoje de manhã. Não aguentei e tive que tirar foto! 🛌🐶</p>
+                        <div class="feed-actions">
+                            <button class="action-btn like-btn" onclick="toggleLike(this)">
+                                <i class="ph ph-heart"></i> <span class="like-count">14</span>
+                            </button>
+                            <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                                <i class="ph ph-chat-circle"></i> <span class="comment-count-text">2 comentários</span>
+                            </button>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list">
+                                <div class="comment-item">
+                                    <strong class="comment-author">Ana_Clara:</strong> <span class="comment-body">Ele sempre fica ali esperando o pessoal da extensão sair haha.</span>
+                                </div>
+                                <div class="comment-item">
+                                    <strong class="comment-author">Lucas_IF:</strong> <span class="comment-body">Pipoca é o verdadeiro dono do Bloco B! ❤️</span>
+                                </div>
+                            </div>
+                            <form class="comment-input-group" onsubmit="adicionarComentarioBanco(event, this)">
+                                <input type="text" class="input-novo-comentario" placeholder="Escreva um comentário..." required>
+                                <button type="submit" aria-label="Enviar comentário"><i class="ph ph-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feed-item" data-post-id="2">
+                    <div class="feed-media-wrapper clickable-media" onclick="abrirPost(this)">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500" alt="Cão do campus">
+                        <div class="media-overlay"><i class="ph ph-magnifying-glass-plus"></i> Ampliar</div>
+                    </div>
+                    <div class="feed-content">
+                        <div class="feed-user-info">
+                            <span class="user-avatar" role="img" aria-label="Estudante">👩‍🎓</span>
+                            <div>
+                                <h4 class="user-name">Beatriz Souza</h4>
+                                <span class="user-email">beatriz.souza@estudante.iftm.edu.br</span>
+                            </div>
+                        </div>
+                        <p class="feed-text">Quem mais comprou ração na lanchonete hoje pra dar pra essa carinha de pidão perto da guarita? Impossível resistir.</p>
+                        <div class="feed-actions">
+                            <button class="action-btn like-btn" onclick="toggleLike(this)">
+                                <i class="ph ph-heart"></i> <span class="like-count">29</span>
+                            </button>
+                            <button class="action-btn comment-trigger" onclick="toggleComments(this)">
+                                <i class="ph ph-chat-circle"></i> <span class="comment-count-text">0 comentários</span>
+                            </button>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
+                            <form class="comment-input-group" onsubmit="adicionarComentarioBanco(event, this)">
+                                <input type="text" class="input-novo-comentario" placeholder="Escreva um comentário..." required>
+                                <button type="submit" aria-label="Enviar comentário"><i class="ph ph-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+            </main>
+        </div>
+    </div>
+
+    <div id="post-modal" class="modal-overlay" onclick="fecharModalExterno(event)">
+        <div class="modal-card">
+            <button class="modal-close" onclick="fecharPost()"><i class="ph ph-x"></i></button>
+            <div class="modal-body-grid">
+                <div class="modal-image-side">
+                    <img id="modal-img" src="" alt="Post amplified">
+                </div>
+                <div class="modal-content-side">
+                    <div id="modal-user-header" class="feed-user-info"></div>
+                    <div id="modal-text-body"></div>
+                    <div id="modal-comments-box">
+                        <h5>Comentários</h5>
+                        <div id="modal-comments-list"></div>
+                        <form class="modal-comment-form" onsubmit="adicionarComentarioModal(event, this)">
+                            <input type="text" id="input-modal-comentario" placeholder="Escreva um comentário..." required>
+                            <button type="submit" aria-label="Enviar comentário pelo modal"><i class="ph ph-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

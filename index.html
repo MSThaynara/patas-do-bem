@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patas do Bem - IFTM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <span class="nav-logo">
+                <a href="index.html">
+                    <img src="Imagens/logo (3).PNG" alt="Patas do Bem">
+                </a>
+            </span>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item active">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="btn btn-primary" onclick="window.location.href='ocorrencias.html'">
+                    <i class="ph ph-plus-circle"></i>
+                    Registrar Ocorrência
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html" class="active">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-inicio" class="page active">
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-up">
+                    <span class="hero-tag">Projeto Integrador Extensionista • IFTM</span>
+                    <h1 class="hero-title">Um ecossistema colaborativo para os <em>cães do campus.</em></h1>
+                    <p class="hero-subtitle">Conectando a comunidade acadêmica do Campus Ituiutaba para transformar o cuidado, monitoramento, doações e adoção responsável dos nossos animais.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-hero-left" onclick="window.location.href='caes.html'">
+                            <i class="ph ph-paw"></i> Ver Animais
+                        </button>
+                        <button class="btn btn-outline btn-hero-right" onclick="window.location.href='ocorrencias.html'">
+                            <i class="ph ph-plus-circle"></i> Registrar Ocorrência
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats fade-up fade-up-delay-2">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">12<span>+</span></div>
+                        <div class="hero-stat-label">Cães cadastrados</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">4</div>
+                        <div class="hero-stat-label">Adoções realizadas</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">27</div>
+                        <div class="hero-stat-label">Ocorrências registradas</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">38<span>+</span></div>
+                        <div class="hero-stat-label">Colaboradores</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="reveal visible section-header-centered">
+                    <span class="section-label">Como funciona</span>
+                    <h2 class="section-title">Plataforma Colaborativa</h2>
+                    <p class="section-subtitle container-center">Unificando os cuidados de forma digital e aberta para toda a comunidade escolar.</p>
+                </div>
+                <div class="pillars-grid reveal visible">
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="ph ph-users-three"></i></div>
+                        <h3 class="pillar-title">Rede Comunitária</h3>
+                        <p class="pillar-text">Estudantes e servidores podem atualizar o status diário dos cães, informando se foram alimentados ou vistos pelo campus.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="ph ph-article"></i></div>
+                        <h3 class="pillar-title">Fim do Papel</h3>
+                        <p class="pillar-text">Digitalização completa do cadastro dos animais, centralizando históricos básicos de saúde e características uniques.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="ph ph-megaphone"></i></div>
+                        <h3 class="pillar-title">Canal Unificado</h3>
+                        <p class="pillar-text">Espaço oficial para relatos de denúncias e ocorrências urgentes de animais machucados ou em situação de risco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-adoption">
+            <div class="container cta-container">
+                <span class="section-label label-light">Faça parte</span>
+                <h2 class="section-title title-light">Quer adotar um dos nossos cães?</h2>
+                <p class="cta-text">Eles estão esperando uma family. O processo é simples, transparente e feito com muito carinho.</p>
+                <button class="btn btn-verde btn-large" onclick="window.location.href='caes.html'">
+                    Ver animais disponíveis
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

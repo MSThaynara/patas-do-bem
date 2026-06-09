@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocorrências - Patas do Bem</title>
+    <link rel="icon" type="image/png" href="Imagens/pata.PNG">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="ocorrencias.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a class="nav-logo" href="index.html">
+                <img src="Imagens/logo (3).PNG" alt="Patas do Bem">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link-item">Início</a></li>
+                <li><a href="instacao.html" class="nav-link-item">InstaCão</a></li>
+                <li><a href="caes.html" class="nav-link-item">Cães</a></li>
+                <li><a href="adocao.html" class="nav-link-item">Adoção</a></li>
+                <li><a href="doacoes.html" class="nav-link-item">Doações</a></li>
+                <li><a href="ocorrencias.html" class="nav-link-item active">Ocorrências</a></li>
+                <li><a href="contato.html" class="nav-link-item">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="ocorrencias.html" class="btn btn-primary">
+                    <i class="ph ph-plus-circle"></i> Registrar Ocorrência
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Início</a>
+        <a href="instacao.html">InstaCão</a>
+        <a href="caes.html">Cães</a>
+        <a href="adocao.html">Adoção</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="ocorrencias.html" class="active">Ocorrências</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <div id="page-ocorrencias" class="page active">
+        <div class="page-hero">
+            <div class="container">
+                <span class="section-label"> Central de Monitoramento</span>
+                <h1 class="section-title">Ocorrências</h1>
+                <p class="section-subtitle">Identificou algum cãozinho precisando de ajuda no campus? Relate abaixo para que nossa equipe de voluntários e veterinários possa agir imediatamente.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+
+                <div class="occ-stats">
+                    <div class="occ-stat-card border-laranja">
+                        <div class="occ-stat-icon icon-laranja">
+                            <i class="ph ph-warning-circle"></i>
+                        </div>
+                        <div class="occ-stat-info">
+                            <div class="occ-stat-num" id="count-abertas">08</div>
+                            <div class="occ-stat-label">Abertas</div>
+                        </div>
+                    </div>
+                    <div class="occ-stat-card border-azul">
+                        <div class="occ-stat-icon icon-azul">
+                            <i class="ph ph-hourglass-medium"></i>
+                        </div>
+                        <div class="occ-stat-info">
+                            <div class="occ-stat-num">05</div>
+                            <div class="occ-stat-label">Em Análise</div>
+                        </div>
+                    </div>
+                    <div class="occ-stat-card border-verde">
+                        <div class="occ-stat-icon icon-verde">
+                            <i class="ph ph-check-circle"></i>
+                        </div>
+                        <div class="occ-stat-info">
+                            <div class="occ-stat-num">14</div>
+                            <div class="occ-stat-label">Resolvidas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="occ-layout">
+                    <div class="form-card">
+                        <h3 class="occ-section-title"><i class="ph ph-note-pencil"></i> Relatar Situação</h3>
+                        <form id="occForm" onsubmit="submitOcc(event)">
+                            <div class="form-group">
+                                <label for="occNome">Seu Nome <span class="optional">(Opcional)</span></label>
+                                <div class="input-wrapper">
+                                    <i class="ph ph-user input-icon"></i>
+                                    <input type="text" name="nome_relator" placeholder="Ex: João Silva" id="occNome" maxlength="100" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="occLocal">Onde Ocorreu? *</label>
+                                    <div class="input-wrapper">
+                                        <i class="ph ph-map-pin input-icon"></i>
+                                        <select id="occLocal" name="local_id" required>
+                                            <option value="" disabled selected hidden>Selecione o local...</option>
+                                            <option value="bloco_a">Guarita</option>
+                                            <option value="bloco_a">Recepção</option>
+                                            <option value="bloco_b">Bloco B</option>
+                                            <option value="bloco_c">Bloco C - Laboratórios</option>
+                                            <option value="bloco_b">Bloco E</option>
+                                            <option value="bloco_b">Bloco F</option>
+                                            <option value="bloco_b">Bloco G</option>
+                                            <option value="bloco_b">Bloco I</option>
+                                            <option value="refeitorio">Refeitório / Lanchonete</option>
+                                            <option value="estacionamento">Estacionamento Principal</option>
+                                            <option value="externo">Outro / Área Externa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="occTipo">Qual o Tipo de Ocorrência? *</label>
+                                    <div class="input-wrapper">
+                                        <i class="ph ph-first-aid input-icon"></i>
+                                        <select id="occTipo" name="tipo_ocorrencia" required>
+                                            <option value="" disabled selected hidden>Selecione a categoria...</option>
+                                            <option value="animal_ferido">Animal Ferido ou Doente</option>
+                                            <option value="animal_abandonado">Animal Abandonado no Campus</option>
+                                            <option value="falta_recurso">Falta de Ração/Água nos pontos</option>
+                                            <option value="outros">Outra Situação</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="occDesc">Descrição Detalhada dos Fatos *</label>
+                                <textarea rows="5" id="occDesc" name="descricao" maxlength="1000" placeholder="Descreva as características do cão, comportamento e pontos de referência exatos..." required></textarea>
+                            </div>
+                            <button type="submit" id="btnSubmitOcc" class="btn btn-primary">
+                                <span>Enviar ocorrência</span>
+                                <i class="ph ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="occ-list-wrapper">
+                        <h3 class="occ-section-title"><i class="ph ph-activity"></i> Últimas Atualizações</h3>
+                        <div class="timeline-container">
+                            <div class="occ-list" id="occList">
+                                <div class="timeline-row">
+                                    <div class="timeline-badge status-open"></div>
+                                    <div class="occ-item status-border-open">
+                                        <div class="occ-item-header">
+                                            <span class="occ-item-id">#027</span>
+                                            <span class="status-badge status-open">Aguardando Resgate</span>
+                                        </div>
+                                        <h4 class="occ-item-title">Cão ferido na pata traseira</h4>
+                                        <div class="occ-item-meta">
+                                            <span><i class="ph ph-map-pin"></i> Área do Refeitório</span>
+                                            <span><i class="ph ph-clock"></i> Há 12 min</span>
+                                        </div>
+                                        <p class="occ-item-text">O cão Thor está mancando bastante no pátio próximo...</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-row">
+                                    <div class="timeline-badge status-review"></div>
+                                    <div class="occ-item status-border-review">
+                                        <div class="occ-item-header">
+                                            <span class="occ-item-id">#026</span>
+                                            <span class="status-badge status-review">Veterinário em Deslocamento</span>
+                                        </div>
+                                        <h4 class="occ-item-title">Novo cão sem identificação coletiva</h4>
+                                        <div class="occ-item-meta">
+                                            <span><i class="ph ph-map-pin"></i> Entrada Bloco A</span>
+                                            <span><i class="ph ph-clock"></i> Ontem</span>
+                                        </div>
+                                        <p class="occ-item-text">Apareceu um filhote de porte médio perto da guarita...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="Imagens/logo (2).PNG" alt="Patas do Bem Logo">
+                    </div>
+                    <p>Projeto de monitoramento e bem-estar animal do IFTM Campus Ituiutaba. Desenvolvido de forma colaborativa pela comunidade acadêmica.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="instacao.html">InstaCão</a></li>
+                        <li><a href="caes.html">Cães do Campus</a></li>
+                        <li><a href="adocao.html">Adoção Responsável</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suporte e Links</h4>
+                    <ul>
+                        <li><a href="ocorrencias.html">Registrar Ocorrência</a></li>
+                        <li><a href="contato.html">Contato da Equipe</a></li>
+                        <li><a href="https://iftm.edu.br" target="_blank" rel="noopener">Portal IFTM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Patas do Bem — IFTM Campus Ituiutaba. Desenvolvido sob Licença MIT.</p>
+                <p>Projeto Integrador Extensionista IFTM</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
